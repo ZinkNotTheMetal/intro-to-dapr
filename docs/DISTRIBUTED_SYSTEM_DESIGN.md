@@ -194,24 +194,3 @@ HTTP gets most of the way there but it's not 100% we will need an additional tec
    1. 4+1 views of software architecture
 3. Tag source code by feature implemented
 4. Enables finding code by feature across multiple files
-
-## Why messaging?
-
-- Reduces afferent (incoming) and efferent (outgoing) coupling while increasing autonomy
-- Reduces coupling
-  - Use asynchronous messaging for temporal coupling
-  - Use JSON/XML + **AMQP** for platform coupling
-
-### Asynchronous messaging
-
-- It's all about one-way, fire & forget messages
-- Everything is built on top of it
-  - Return Address pattern
-  - Correlated Request/Response
-  - Publish/Subscribe
-
-### Performance - RPC vs Messaging
-
-- With RPC, threads are allocated with load
-- With messaging, threads are independent difference due to synchronous blocking calls
-- Memory, DB locks, held longer with RPC

@@ -1,0 +1,12 @@
+version: 1
+common:
+  resourcesPath: ./dapr/components
+apps:
+  - appID: invoice-processor-api
+    appDirPath: ./Invoice.Processor.Api/
+    appProtocol: http
+    appPort: 5001
+    appLogDestination: console
+    daprLogDestination: console
+    loglevel: warn
+    command: ['dotnet', 'run']

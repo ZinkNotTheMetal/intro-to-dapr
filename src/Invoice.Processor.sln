@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Invoice.Processor.Api", "Invoice.Processor.Api\Invoice.Processor.Api.csproj", "{D1E0920E-9FD4-4B95-80AD-C03F08FD0C80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoice.Processor.Workflow", "Invoice.Processor.Workflow\Invoice.Processor.Workflow.csproj", "{A72618DF-6962-4010-A905-672368B0D4EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1E0920E-9FD4-4B95-80AD-C03F08FD0C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1E0920E-9FD4-4B95-80AD-C03F08FD0C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1E0920E-9FD4-4B95-80AD-C03F08FD0C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1E0920E-9FD4-4B95-80AD-C03F08FD0C80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A72618DF-6962-4010-A905-672368B0D4EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A72618DF-6962-4010-A905-672368B0D4EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A72618DF-6962-4010-A905-672368B0D4EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A72618DF-6962-4010-A905-672368B0D4EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B476885E-7B2C-4C82-BFD0-CF5E4C9BC402}
+	EndGlobalSection
+EndGlobal
