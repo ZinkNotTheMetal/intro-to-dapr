@@ -1,4 +1,4 @@
-# Useful paterns with distributed systems
+# Useful patterns with distributed systems
 
 ## dapr workflows
 
@@ -20,13 +20,13 @@
 
 ## Saga pattern
 
-- A failure management pattern that helps estabilish consistency in distributed applications and coordinates transactions between multiple microservices to maintain data consistency
+- A failure management pattern that helps establish consistency in distributed applications and coordinates transactions between multiple microservices to maintain data consistency
 
 ## Task Chaining pattern
 
 - Series of activities that happen in sequential order. The output of one step may be passed as the input to the next step.
 - The steps of the workflow may need to be orchestrated across multiple microservices.
-- Need to implement retry policies and comensating transactions in case calls to a particular service fail
+- Need to implement retry policies and compensating transactions in case calls to a particular service fail
 
 ## Monitor Pattern
 
@@ -48,3 +48,21 @@
 - Compose a user interface from multiple different parts that can be managed and deployed separately.
 - With UI composition, what appears to be a single monolithic user interface is in fact made up of multiple separate components. These components can be served from different backing systems (perhaps separate microservices), and can be managed by different teams.
 - These components can be changed independently from each other, allowing different teams to work in parallel and push out changes as and when they are ready.
+
+## Messaging Patterns
+
+### Return Address Pattern
+
+- When sending a message if you expect a response, you should include an address on where you are listening for that response
+- Similar to a postage note (writing a return address on a letter)
+- Simple header that needs to be set
+
+### Publish / Subscribe
+
+- In software architecture, publish–subscribe is a messaging pattern where publishers categorize messages into classes that are received by subscribers. This is contrasted to the typical messaging pattern model where publishers send messages directly to subscribers.
+- Asynchronous messaging is an effective way to decouple senders from consumers, and avoid blocking the sender to wait for a response. However, using a dedicated message queue for each consumer does not effectively scale to many consumers.
+
+### Claim Check Pattern
+
+- Split a large message into a claim check and a payload. Send the claim check to the messaging platform and store the payload to an external service. This pattern allows large messages to be processed, while protecting the message bus and the client from being overwhelmed or slowed down. This pattern also helps to reduce costs, as storage is usually cheaper than resource units used by the messaging platform.
+-
