@@ -1,18 +1,33 @@
 # Useful patterns with distributed systems
 
-## dapr workflows
+## SOA
 
-- Dapr workflows are stateful orchestration mechanism that helps in building custom and long running business logic in a reliable manner. As it is stateful, it can be used to reactive the workflow incase of disruptions picking up where it left off. It helps in building reliable orchestration across multiple microservices
+- Service-oriented architecture (SOA) is a way of designing software applications using reusable and interoperable components called services.
+  - Services are in the logical view
+  - Mapping to the development view, a service could be a source control repository itself
+  - Publishing schema to a package manager (NuGet) will help us decouple services
 
-- Activity (i.e. - Step) - are basic units of work that are being done in the workflow. These are the tasks that get executed in a processing order to produce a result. Dapr workflow engine guarantees that each workflow is at least executed once. That's why it is required to make sure activity logic should be idempotent.
+### What is a service?
 
-### Benefits of workflows in dapr
+- A service is the technical authority for a specific business capability (all data & business rules related to that business capability belong to that service)
+- All data and business rules reside within the service
+- Nothing is 'left over' after identifying services
+- Everything must be in 'some' service
 
-1. Takes care of executing the workflow and ensuring that it runs to completion
-2. Saves progress automatically
-3. Automatically resumes the workflow from the last completed step if the workflow process itself fails for any reason
-4. Provides built-in retry configuration primitives to simplify the process of configuring complex retry policies for individual steps in the workflow
-5. Supports external system interaction in case you need to wait for a user / process to approve before moving on to the next step
+### What a service is not
+
+- A service that has only functionality is a __function__ not a service.
+  - i.e. - calculation or validation
+- A service that has only data is a __database__ not a service
+  - i.e. CRUD entities
+- WSDL / REST doesn't change logical responsibility
+
+### Tenant's of a service
+
+1. Services are autonomous
+2. Services have explicit boundaries
+3. Services share contract & schema, not class or type (or anything else including databases!)
+4. Service interaction is controlled by policy (physical communication on how services communicate)
 
 ## Event sourcing
 
@@ -65,4 +80,17 @@
 ### Claim Check Pattern
 
 - Split a large message into a claim check and a payload. Send the claim check to the messaging platform and store the payload to an external service. This pattern allows large messages to be processed, while protecting the message bus and the client from being overwhelmed or slowed down. This pattern also helps to reduce costs, as storage is usually cheaper than resource units used by the messaging platform.
--
+
+## dapr workflows
+
+- Dapr workflows are stateful orchestration mechanism that helps in building custom and long running business logic in a reliable manner. As it is stateful, it can be used to reactive the workflow incase of disruptions picking up where it left off. It helps in building reliable orchestration across multiple microservices
+
+- Activity (i.e. - Step) - are basic units of work that are being done in the workflow. These are the tasks that get executed in a processing order to produce a result. Dapr workflow engine guarantees that each workflow is at least executed once. That's why it is required to make sure activity logic should be idempotent.
+
+### Benefits of workflows in dapr
+
+1. Takes care of executing the workflow and ensuring that it runs to completion
+2. Saves progress automatically
+3. Automatically resumes the workflow from the last completed step if the workflow process itself fails for any reason
+4. Provides built-in retry configuration primitives to simplify the process of configuring complex retry policies for individual steps in the workflow
+5. Supports external system interaction in case you need to wait for a user / process to approve before moving on to the next step
